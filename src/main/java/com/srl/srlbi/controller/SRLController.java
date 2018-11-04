@@ -53,6 +53,8 @@ public class SRLController {
 	VQtyDAO vQtyDAO;
 	@Autowired
 	VBankBalanceDAO vBankBalanceDAO;
+	@Autowired
+	VExpenseDetailsDAO vExpenseDetailsDAO;
 	
 	@GetMapping("/runBatch")
 	public String runBatch(@PathVariable(value = "path", required=false) String path) {
@@ -81,6 +83,11 @@ public class SRLController {
 	@GetMapping("/qty")
 	public List<ViewQuantitySold> getQty() {
 	    return vQtyDAO.findAll();
+	}
+	
+	@GetMapping("/expense")
+	public List<ViewExpenseDetail> getVExpenseDetails() {
+	    return vExpenseDetailsDAO.findAll();
 	}
 	
 	@GetMapping("/bank")

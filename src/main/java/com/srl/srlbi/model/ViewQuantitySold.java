@@ -18,18 +18,19 @@ public class ViewQuantitySold implements Serializable {
 	@Column(name="cust_wo", length=255)
 	private String custWo;
 
+	@Column(name="wo_qty")
+	private double woQty;
+	
+	@Lob
+	private String invoices;
+
+	@Column(name="qty_sold")
+	private double qtySold;
+
 	@Id
 	@Column(nullable=false)
 	private BigInteger id;
 
-	@Lob
-	private String invoices;
-
-	@Column(name="wo_qty")
-	private double woQty;
-	
-	@Column(name="qty_sold")
-	private double qtySold;
 
 	public ViewQuantitySold() {
 	}

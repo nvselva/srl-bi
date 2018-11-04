@@ -29,20 +29,23 @@ public class ViewProfit implements Serializable {
 	@Column(name="inv_dates")
 	private String invDates;
 
-
 	@Lob
 	private String rmrs;
 	
 	@Lob
 	private String invoices;
-	
-	
 
 	@Column(name="purchase_quantity")
 	private double purchaseQuantity;
 
 	@Column(name="purchase_rate")
 	private double purchaseRate;
+
+	@Column(name="purchase_osl_amount")
+	private double purchaseOslAmount;
+
+	@Column(name="purchase_adjustment")
+	private double purchaseAdjustment;
 
 	@Column(name="purchase_amount_paid")
 	private double purchaseAmountPaid;
@@ -52,25 +55,28 @@ public class ViewProfit implements Serializable {
 
 	@Column(name="sales_amount_total")
 	private double salesAmountTotal;
+	
 	@Column(name="sales_gst")
 	private double salesGst;
 
-	@Column(name="security_deposit")
-	private double securityDeposit;
-
+	@Column(name="withheld_amount")
+	private double withheldAmount;
 
 	@Column(name="amount_to_be_received")
 	private double amountToBeReceived;
 
-
+	@Column(name="net_sales_adjustment")
+	private double netSalesAdjustment;
+	
 	@Column(name="actual_amount_received")
 	private double actualAmountReceived;
 
-
 	@Column(name="overdue_amount")
 	private double overdueAmount;
+
 	@Column(name="sales_profit")
 	private double salesProfit;
+	
 	@Column(name="net_profit")
 	private double netProfit;
 	
@@ -93,7 +99,46 @@ public class ViewProfit implements Serializable {
 	@Column(name="partner_2_share")
 	private double partner_2_share;
 	
-	
+	public String getPurchaseOslAmount() {
+		return format(purchaseOslAmount);
+	}
+
+
+	public void setPurchaseOslAmount(double purchaseOslAmount) {
+		this.purchaseOslAmount = purchaseOslAmount;
+	}
+
+
+	public String getPurchaseAdjustment() {
+		return format(purchaseAdjustment);
+	}
+
+
+	public void setPurchaseAdjustment(double purchaseAdjustment) {
+		this.purchaseAdjustment = purchaseAdjustment;
+	}
+
+
+	public String getWithheldAmount() {
+		return format(withheldAmount);
+	}
+
+
+	public void setWithheldAmount(double withheldAmount) {
+		this.withheldAmount = withheldAmount;
+	}
+
+
+	public String getNetSalesAdjustment() {
+		return format(netSalesAdjustment);
+	}
+
+
+	public void setNetSalesAdjustment(double netSalesAdjustment) {
+		this.netSalesAdjustment = netSalesAdjustment;
+	}
+
+
 	public String getPartner_1_share() {
 		return format(partner_1_share);
 	}
@@ -316,13 +361,5 @@ public class ViewProfit implements Serializable {
 		this.salesQuantity = salesQuantity;
 	}
 
-	public String getSecurityDeposit() {
-		return format(this.securityDeposit);
-	}
-
-	public void setSecurityDeposit(double securityDeposit) {
-		this.securityDeposit = securityDeposit;
-	}
-	
 
 }
